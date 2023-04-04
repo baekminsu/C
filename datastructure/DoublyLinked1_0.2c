@@ -1,0 +1,84 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable:4996)
+
+typedef struct NODE {
+	struct NODE* llink;
+	int data;
+	struct NODE* rlnik;
+}Node;
+
+typedef struct LIST { //리스트를 나타내는 구조체
+	int size;
+	Node* header;
+	Node* trailer;
+}List;
+
+List* createList() {
+	List* list = (List*)malloc(sizeof(List)); 
+	list->header = (Node*)malloc(sizeof(Node));
+	list->trailer = (Node*)malloc(sizeof(Node));
+	list->header->rlink = list->trailer;
+	list->trailer->llink = list->header;
+	
+	return list;
+}
+
+
+
+void add(struct NODE* list, int r, int e) {
+	
+	
+
+}
+
+void delete(struct NODE* list, int r) {
+
+
+}
+
+void get(struct NODE* list, int r) {
+
+
+}
+
+void print(struct NODE* list) {
+
+
+}
+
+
+int main() {
+
+	int N;
+	char order;
+	int num2;
+	char input;
+	scanf("%d", &N);
+	getchar();
+	
+	List list = createList();
+
+	for (int i = 0; i < N; i++) {
+		scanf("%c", &order);
+		if (order == 'A') {
+			scanf("%d %c", &num2, &input);
+			add(list, num2, input);
+		}
+		else if (order == 'D') {
+			scanf("%d", &num2);
+		}
+		else if (order == 'G') {
+			scanf("%d", &num2);
+		}
+		else { // order 가 P 일때
+			print(list)
+		}
+		
+
+	}
+
+	return 0;
+}
