@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable:4996)
+//https://code731.tistory.com/13
+typedef struct ListNode {
+	int coef; //항의 계수
+	int exp; // 항의 차수
+	struct ListNode *next // 단일연결리스트니까
+}ListNode;
+
+typedef struct ListHead {
+	ListNode* head;
+}ListHead;
+
+void appendTerm(ListNode* head, int coef, int exp) {
+	ListNode* newnode = (ListNode*)malloc(sizeof(ListNode));
+	newnode->coef = coef;
+	newnode->exp = exp;
+	newnode->next = NULL;
+	while (newnode->next != NULL) {
+		head = head->next;
+	}
+	head->next = newnode;
+}
+
+ListNode* addPoly(ListNode* first, ListNode* second) {
+
+
+
+
+
+
+}
+
+void printPoly(ListNode* header) {
+	ListNode* p = header;
+	while (p != NULL) {
+		printf(" %d %d", p->coef, p->exp);
+		p = p->next;
+	}
+}
+
+
+
+int main() {
+	
+	int num, coef, exp;
+
+	ListNode* polynomial1 = (ListNode*)malloc(sizeof(ListNode));
+	ListNode* polynomial2 = (ListNode*)malloc(sizeof(ListNode));
+	ListNode* sumpolynomial;
+
+	polynomial1->next = NULL;
+	polynomial2->next = NULL;
+
+	scanf("%d", &num);
+	for (int i = 0; i < num; i++) {
+		scanf("%d %d", &coef, &exp);
+		appendTerm(polynomial1, coef, exp);
+	}
+	scanf("%d", &num);
+	for (int i = 0; i < num; i++) {
+		scanf("%d %d", &coef, &exp);
+		appendTerm(polynomial2, coef, exp);
+	}
+
+	sumpolynomial = addPoly(polynomial1, polynomial2);
+	printPoly(sumpolynomial);
+
+	return 0;
+}
